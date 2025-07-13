@@ -107,7 +107,7 @@
         
         // Content locker integration
         $('.showContentLocker').click(function(){
-            _VE();
+            _EQ();
             return false;
         });
  
